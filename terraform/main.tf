@@ -41,9 +41,15 @@ resource "aws_cloudfront_distribution" "cdn" {
     }
   }
 
-  restrictions { geo_restriction { restriction_type = "none" } }
+  restrictions {
+    geo_restriction {
+      restriction_type = "none"
+    }
+  }
 
-  viewer_certificate { cloudfront_default_certificate = true }
+  viewer_certificate {
+    cloudfront_default_certificate = true
+  }
 }
 
 data "aws_iam_policy_document" "bucket_policy" {
